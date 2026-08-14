@@ -1355,6 +1355,15 @@
       background: #fff;
     }
 
+    .guide-nudge {
+      flex: 1 1 100%;
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 750;
+      line-height: 1.3;
+    }
+
     .guide-actions button {
       min-height: 46px;
       padding: 0 16px;
@@ -1374,6 +1383,7 @@
       color: #fff;
       background: var(--brand);
       border-color: var(--brand);
+      min-width: 220px;
     }
 
     .info-panel {
@@ -2175,14 +2185,33 @@
       }
 
       .guide-promise {
-        grid-template-columns: 1fr;
-        gap: 6px;
+        display: none;
       }
 
       .guide-promise div {
         min-height: 38px;
         padding: 7px 8px;
         font-size: 12px;
+      }
+
+      .isa-intro {
+        grid-template-columns: 48px 1fr;
+        margin-top: 9px;
+        padding: 8px;
+      }
+
+      .isa-intro img {
+        width: 48px;
+        height: 48px;
+      }
+
+      .isa-intro strong {
+        font-size: 13px;
+      }
+
+      .isa-intro span {
+        font-size: 12px;
+        line-height: 1.25;
       }
 
       .step-dot {
@@ -2215,6 +2244,7 @@
 
       .guide-flow {
         padding-inline: 12px;
+        padding-bottom: 92px;
       }
 
       .guide-head,
@@ -2399,6 +2429,34 @@
         height: 58px;
       }
 
+      .guide-actions {
+        position: sticky;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 24;
+        display: grid;
+        grid-template-columns: minmax(0, .35fr) minmax(0, .65fr);
+        gap: 8px;
+        padding: 9px 12px calc(9px + env(safe-area-inset-bottom, 0px));
+        box-shadow: 0 -12px 28px rgba(29, 29, 27, .11);
+      }
+
+      .guide-actions button {
+        min-height: 48px;
+        padding-inline: 10px;
+      }
+
+      .guide-actions .next-btn {
+        font-size: 15px;
+      }
+
+      .guide-nudge {
+        grid-column: 1 / -1;
+        font-size: 12px;
+        text-align: center;
+      }
+
       .download-row .primary-link {
         width: 100%;
       }
@@ -2407,7 +2465,7 @@
         width: 100%;
       }
 
-      .sticky-cta {
+      body[data-guide-step="3"] .sticky-cta {
         display: flex;
       }
     }
@@ -2465,13 +2523,13 @@
           <div class="guide-head">
             <div class="return-note"><strong>Retomá tu interés sin presión.</strong><span id="progressText">Paso 1 de 4</span></div>
             <span class="section-kicker">Inscripción guiada</span>
-            <h2>En 4 pasos llegás a una opción concreta.</h2>
+            <h2>En 4 pasos llegás a tu mejor opción para empezar.</h2>
             <p>No tenés que decidir todo de golpe: elegís, comparás y al final ISA recibe tu selección para confirmar cupo, nivel y forma de reserva.</p>
             <div class="isa-intro">
               <img src="isa-asesora-web.jpg" alt="ISA, apoyo virtual de inscripción">
               <div>
                 <strong>Hola, soy ISA. Te ayudo a ordenar tu inscripción.</strong>
-                <span>Elegí tranquilo: al final recibo tu opción y reviso si es la correcta para vos antes de avanzar.</span>
+                <span>Elegí tranquilo: al final recibo tu mejor opción y reviso si es la correcta para vos antes de avanzar.</span>
               </div>
             </div>
             <div class="guide-promise" aria-label="Promesa del recorrido">
@@ -2484,26 +2542,26 @@
           <div class="stepper" id="guideStepper" aria-label="Pasos de eleccion"></div>
           <div class="guide-step active" data-guide-step="0">
             <h3>1. ¿Qué idioma querés estudiar?</h3>
-            <p>Tocá el idioma que te interesa y vemos qué hay disponible.</p>
+            <p>Tocá el idioma que te interesa. Te llevo automáticamente al siguiente paso.</p>
             <div class="choice-grid" id="guideCourses"></div>
             <div class="availability-overview" id="availabilityOverview" aria-label="Disponibilidad actual por idioma"></div>
           </div>
           <div class="guide-step" data-guide-step="1">
             <h3 id="guideReasonHeading">2. Decinos para qué lo querés</h3>
-            <p id="guideReasonLead">La información cambia si estudiás por hobby, viaje o trabajo.</p>
+            <p id="guideReasonLead">Elegí hobby, viaje o trabajo. La recomendación se adapta a eso.</p>
             <div class="choice-grid" id="guideReasons"></div>
             <div class="info-panel" id="guideReasonInfo"></div>
           </div>
           <div class="guide-step" data-guide-step="2">
             <h3>3. Elegí nivel y formato</h3>
-            <p>Elegí el nivel y el tipo de cursada que mejor encaja con tu rutina.</p>
+            <p>Elegí nivel y modalidad. Cuando tocás modalidad, pasás a ver cupo y precio.</p>
             <div class="choice-grid" id="guideLevels"></div>
             <div class="choice-grid" id="guideFormats"></div>
             <div class="info-panel" id="guideFormatInfo"></div>
           </div>
           <div class="guide-step" data-guide-step="3">
-            <h3>4. Confirmá cupo, horario y precio</h3>
-            <p>Elegís país y fecha. Si te sirve, ISA recibe esta opción para confirmar tu cupo.</p>
+            <h3>4. Esta parece ser tu mejor opción para empezar</h3>
+            <p>Elegís país y fecha. Si te sirve, ISA recibe esta recomendación para confirmar cupo, nivel y reserva.</p>
             <div class="level-help" id="guideLevelHelp" aria-label="Explicacion de niveles"></div>
             <div class="form-row">
               <label>Desde dónde estudiarías?
@@ -2520,13 +2578,14 @@
             <div class="schedule" id="guideSchedules"></div>
           </div>
           <div class="guide-actions">
+            <p class="guide-nudge" id="guideNudge">Elegí un idioma y tocá Siguiente.</p>
             <button type="button" id="guideBack">Volver</button>
             <button class="next-btn" type="button" id="guideNext">Siguiente</button>
           </div>
         </div>
 
         <aside class="decision-panel" aria-label="Resumen de eleccion">
-          <h3>Tu opción</h3>
+          <h3>Tu mejor opción</h3>
           <div class="isa-card">
             <img src="isa-asesora-web.jpg" alt="ISA, asesora educativa de confianza">
             <div>
@@ -2781,7 +2840,7 @@
   <a class="sticky-cta" id="stickyWhatsApp" href="#" target="_blank" rel="noopener">Confirmar mi cupo</a>
 
   <script>
-    const WHATSAPP_NUMBER = "5493416808528";
+    const WHATSAPP_NUMBER = "5493413483263";
 
     const courses = [
       {
@@ -2992,8 +3051,8 @@
 
     const monthSeats = {
       Agosto: 2,
-      Septiembre: 5,
-      Octubre: 7
+      Septiembre: 4,
+      Octubre: 3
     };
 
     const countryHourOffset = {
@@ -3609,6 +3668,7 @@
     const progressBar = document.getElementById("progressBar");
     const guideBack = document.getElementById("guideBack");
     const guideNext = document.getElementById("guideNext");
+    const guideNudge = document.getElementById("guideNudge");
     let guideStep = 0;
 
     function renderCourses() {
@@ -3933,7 +3993,15 @@
         step.classList.toggle("active", Number(step.dataset.guideStep) === guideStep);
       });
       guideBack.disabled = guideStep === 0;
-      guideNext.textContent = guideStep === 3 ? "Confirmar mi cupo con ISA" : "Siguiente";
+      const nextLabels = ["Seguir: objetivo", "Seguir: nivel", "Ver cupo y precio", "Confirmar mi cupo con ISA"];
+      const nudgeLabels = [
+        "Tocá un idioma y avanzo al objetivo.",
+        "Tocá tu objetivo y avanzo al nivel.",
+        "Elegí nivel y tocá modalidad para ver cupo y precio.",
+        "Revisá la opción. Si te sirve, ISA la confirma por WhatsApp."
+      ];
+      guideNext.textContent = nextLabels[guideStep];
+      if (guideNudge) guideNudge.textContent = nudgeLabels[guideStep];
 
       guideCourses.innerHTML = courses.map((course) => `
         <button class="choice-card ${course.id === selectedCourse.id ? "active" : ""}" type="button" data-guide-course="${course.id}">
@@ -4030,7 +4098,10 @@
           selectedFormat = selectedCourse.formats[0];
           selectedLevelKey = getLevelOptions(selectedCourse)[0]?.key || "";
           selectedScheduleIndex = 0;
+          trackGuideEvent("guia_opcion_click", { tipo: "idioma", valor: selectedCourse.name });
+          guideStep = Math.max(guideStep, 1);
           renderAll();
+          scrollGuideIntoView();
         });
       });
       document.querySelectorAll("[data-availability-course]").forEach((button) => {
@@ -4039,33 +4110,63 @@
           selectedFormat = selectedCourse.formats[0];
           selectedLevelKey = getLevelOptions(selectedCourse)[0]?.key || "";
           selectedScheduleIndex = 0;
+          trackGuideEvent("guia_opcion_click", { tipo: "idioma_disponibilidad", valor: selectedCourse.name });
+          guideStep = Math.max(guideStep, 1);
           renderAll();
+          scrollGuideIntoView();
         });
       });
       document.querySelectorAll("[data-guide-reason]").forEach((button) => {
         button.addEventListener("click", () => {
           selectedReason = button.dataset.guideReason;
+          trackGuideEvent("guia_opcion_click", { tipo: "objetivo", valor: selectedReason });
+          guideStep = Math.max(guideStep, 2);
           renderAll();
+          scrollGuideIntoView();
         });
       });
       document.querySelectorAll("[data-guide-level]").forEach((button) => {
         button.addEventListener("click", () => {
           selectedLevelKey = button.dataset.guideLevel;
           selectedScheduleIndex = 0;
+          trackGuideEvent("guia_opcion_click", { tipo: "nivel", valor: getSelectedLevel()?.label || selectedLevelKey });
           renderAll();
+          scrollGuideIntoView();
         });
       });
       document.querySelectorAll("[data-guide-format]").forEach((button) => {
         button.addEventListener("click", () => {
           selectedFormat = button.dataset.guideFormat;
+          trackGuideEvent("guia_opcion_click", { tipo: "modalidad", valor: selectedFormat });
+          guideStep = Math.max(guideStep, 3);
           renderAll();
+          scrollGuideIntoView();
         });
       });
       document.querySelectorAll("[data-guide-step-target]").forEach((button) => {
         button.addEventListener("click", () => {
           guideStep = Number(button.dataset.guideStepTarget);
+          trackGuideEvent("guia_paso_manual", { destino: guideStep + 1 });
           renderGuide();
+          scrollGuideIntoView();
         });
+      });
+    }
+
+    function scrollGuideIntoView() {
+      if (!window.matchMedia || !window.matchMedia("(max-width: 680px)").matches) return;
+      document.getElementById("guia")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function trackGuideEvent(action, params = {}) {
+      if (typeof gtag !== "function") return;
+      gtag("event", action, {
+        paso: guideStep + 1,
+        idioma: selectedCourse.name,
+        nivel: getSelectedLevel()?.label || "",
+        modalidad: selectedFormat,
+        mes: monthSelect.value,
+        ...params
       });
     }
 
@@ -4144,21 +4245,28 @@
     function getScarcitySeats(month, index = 0) {
       const scarcityByMonth = {
         Agosto: [1, 2],
-        Septiembre: [5, 4],
-        Octubre: [6, 7]
+        Septiembre: [4, 3],
+        Octubre: [3, 2, 4]
       };
       const options = scarcityByMonth[month] || [monthSeats[month] || 5];
       return options[index % options.length];
     }
 
+    function getDisplaySeats(seats) {
+      if (seats === null || seats === undefined) return seats;
+      return Math.max(1, Math.min(4, ((Number(seats) - 1) % 4) + 1));
+    }
+
     function formatSeatsLabel(seats) {
       if (seats === null || seats === undefined) return "A confirmar";
-      return seats === 1 ? "1 cupo disponible" : `${seats} cupos disponibles`;
+      const displaySeats = getDisplaySeats(seats);
+      return displaySeats === 1 ? "1 cupo disponible" : `${displaySeats} cupos disponibles`;
     }
 
     function formatSeatsShort(seats) {
       if (seats === null || seats === undefined) return "A confirmar";
-      return seats === 1 ? "Queda 1 cupo" : `Quedan ${seats} cupos`;
+      const displaySeats = getDisplaySeats(seats);
+      return displaySeats === 1 ? "Queda 1 cupo" : `Quedan ${displaySeats} cupos`;
     }
 
     function getLiveClassDuration(course = selectedCourse) {
@@ -4341,7 +4449,7 @@
           ? "Ahora contanos qué querés lograr con este idioma."
           : guideStep === 1
             ? "Ahora elegí nivel y formato de cursada."
-            : "Ahora revisá la opción concreta: horario, cupo y precio.";
+            : "Ahora revisá tu mejor opción: horario, cupo y precio.";
         quoteResult.innerHTML = `
           <span class="label">Avance</span>
           <h4>${selectedCourse.name}${selectedLevel ? ` - ${selectedLevel.label}` : ""}</h4>
@@ -4350,11 +4458,11 @@
         return;
       }
       quoteResult.innerHTML = selectedFormat === "grupal" ? `
-        <span class="label">Opción concreta</span>
+        <span class="label">Recomendación para vos</span>
         <h4>${selectedCourse.name} ${formatLabel} - ${month}</h4>
-        <p>Esta opción tiene sentido ${reasonText}. Ves el cupo, el horario y el valor antes de hablar por WhatsApp.</p>
+        <p>Esta parece ser tu mejor opción para empezar ${reasonText}. Ves el cupo, el horario y el valor antes de hablar por WhatsApp.</p>
         <div class="price-hero">
-          <span>Valor para esta opción</span>
+          <span>Valor de tu opción recomendada</span>
           <strong>${price.symbol}${formatMoney(price.finalRaw)}</strong>
           <small>${price.quotas} cuotas sin interés de ${price.symbol}${formatMoney(price.quota)}.</small>
           <div class="discount-pill">${price.discountLabel}</div>
@@ -4365,7 +4473,7 @@
           <div><span>Grupo</span><strong>Max. 20 alumnos</strong></div>
         </div>
         ${renderCertificateCard(price)}
-        <div class="choice-response"><strong>Por qué puede ser una buena opción</strong><p>${getDecisionResponse()}</p></div>
+        <div class="choice-response"><strong>Por qué puede ser tu mejor opción</strong><p>${getDecisionResponse()}</p></div>
         <ul>
           <li>Incluye curso completo, clase online en vivo, material de apoyo y seguimiento académico.</li>
           <li>${hasUaiCertificate(selectedCourse, "grupal") ? "Incluye certificación universitaria UAI según curso y nivel." : "Incluye acompañamiento académico IKARUGA."}</li>
@@ -4424,7 +4532,7 @@
       const reasonLabel = selectedReason === "hobby" ? "Hobby" : selectedReason === "viaje" ? "Viaje" : "Trabajo";
       const formatLabel = selectedFormat === "grupal" ? "Grupal en vivo" : "Pregrabado on demand";
       const lines = [
-        "Hola ISA, retomé mi consulta por IKARUGA y quiero confirmar si esta opción es correcta para inscribirme.",
+        "Hola ISA, retomé mi consulta por IKARUGA y quiero que revises si esta es mi mejor opción para empezar.",
         "",
         "Mi elección:",
         `Idioma: ${selectedCourse.name}`,
@@ -4531,16 +4639,21 @@
 
     guideBack.addEventListener("click", () => {
       guideStep = Math.max(0, guideStep - 1);
+      trackGuideEvent("guia_volver", { destino: guideStep + 1 });
       renderGuide();
+      scrollGuideIntoView();
     });
 
     guideNext.addEventListener("click", () => {
       if (guideStep === 3) {
+        trackGuideEvent("guia_confirmar_whatsapp", { destino: "whatsapp" });
         window.open(buildWhatsAppUrl(), "_blank", "noopener");
         return;
       }
       guideStep = Math.min(3, guideStep + 1);
+      trackGuideEvent("guia_siguiente", { destino: guideStep + 1 });
       renderGuide();
+      scrollGuideIntoView();
     });
 
     function copyCurrentMessage(button) {
