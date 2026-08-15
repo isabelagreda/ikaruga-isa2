@@ -1836,6 +1836,27 @@
       letter-spacing: 0;
     }
 
+    .price-regular {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .price-regular s {
+      color: var(--ink-soft);
+      text-decoration-thickness: 2px;
+    }
+
+    .price-now-label {
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
     .price-hero small {
       color: var(--ink-soft);
       font-size: 13px;
@@ -2184,6 +2205,10 @@
         display: none;
       }
 
+      .path-preview {
+        display: none;
+      }
+
       .guide-promise {
         display: none;
       }
@@ -2255,6 +2280,11 @@
       .guide-head h2 {
         font-size: 22px;
         line-height: 1.08;
+      }
+
+      .guide-head .section-kicker,
+      .guide-head > p {
+        display: none;
       }
 
       .guide-head p,
@@ -2487,10 +2517,10 @@
     <section class="hero" id="top">
       <div class="hero-copy">
         <span class="eyebrow">Inscripciones abiertas</span>
-        <h1>Elegí tu curso de idiomas sin esperar una llamada.</h1>
-        <p class="lead">Ves idioma, objetivo, nivel, horario, cupo y precio a tu ritmo. Cuando encontrás una opción que te sirve, ISA te acompaña por WhatsApp para confirmar la inscripción correcta.</p>
+        <h1>Encontrá tu curso, cupo y precio en menos de un minuto.</h1>
+        <p class="lead">Elegí idioma, objetivo y horario. Si una opción te sirve, ISA la revisa por WhatsApp y te ayuda a confirmar la inscripción.</p>
         <div class="hero-actions">
-          <a class="primary-link" href="#guia">Encontrar mi curso</a>
+          <a class="primary-link" href="#guia">Ver cupos y ofertas</a>
         </div>
         <div class="trust-row" aria-label="Resumen de propuesta">
           <div class="trust-item"><strong>UAI</strong><span>certificacion universitaria segun curso.</span></div>
@@ -2521,10 +2551,10 @@
       <div class="guide-shell">
         <div class="guide-main">
           <div class="guide-head">
-            <div class="return-note"><strong>Retomá tu interés sin presión.</strong><span id="progressText">Paso 1 de 4</span></div>
+            <div class="return-note"><strong>Retomá donde lo dejaste.</strong><span id="progressText">Paso 1 de 4</span></div>
             <span class="section-kicker">Inscripción guiada</span>
-            <h2>En 4 pasos llegás a tu mejor opción para empezar.</h2>
-            <p>No tenés que decidir todo de golpe: elegís, comparás y al final ISA recibe tu selección para confirmar cupo, nivel y forma de reserva.</p>
+            <h2>Elegí y mirá tu oferta antes de hablar por WhatsApp.</h2>
+            <p>El recorrido te muestra solo lo necesario: idioma, objetivo, nivel, horario, cupo y precio.</p>
             <div class="isa-intro">
               <img src="../isa-asesora-web.jpg" alt="ISA, apoyo virtual de inscripción">
               <div>
@@ -2542,26 +2572,26 @@
           <div class="stepper" id="guideStepper" aria-label="Pasos de eleccion"></div>
           <div class="guide-step active" data-guide-step="0">
             <h3>1. ¿Qué idioma querés estudiar?</h3>
-            <p>Tocá el idioma que te interesa. Te llevo automáticamente al siguiente paso.</p>
+            <p>Tocá un idioma. El avance es automático.</p>
             <div class="choice-grid" id="guideCourses"></div>
             <div class="availability-overview" id="availabilityOverview" aria-label="Disponibilidad actual por idioma"></div>
           </div>
           <div class="guide-step" data-guide-step="1">
             <h3 id="guideReasonHeading">2. Decinos para qué lo querés</h3>
-            <p id="guideReasonLead">Elegí hobby, viaje o trabajo. La recomendación se adapta a eso.</p>
+            <p id="guideReasonLead">Elegí el uso más cercano. La recomendación cambia según tu objetivo.</p>
             <div class="choice-grid" id="guideReasons"></div>
             <div class="info-panel" id="guideReasonInfo"></div>
           </div>
           <div class="guide-step" data-guide-step="2">
             <h3>3. Elegí nivel y formato</h3>
-            <p>Elegí nivel y modalidad. Cuando tocás modalidad, pasás a ver cupo y precio.</p>
+            <p>Marcá nivel y modalidad. Después ves cupo, horario y oferta.</p>
             <div class="choice-grid" id="guideLevels"></div>
             <div class="choice-grid" id="guideFormats"></div>
             <div class="info-panel" id="guideFormatInfo"></div>
           </div>
           <div class="guide-step" data-guide-step="3">
             <h3>4. Esta parece ser tu mejor opción para empezar</h3>
-            <p>Elegís país y fecha. Si te sirve, ISA recibe esta recomendación para confirmar cupo, nivel y reserva.</p>
+            <p>Elegí país y fecha. Si te sirve, confirmás la opción con ISA.</p>
             <div class="level-help" id="guideLevelHelp" aria-label="Explicacion de niveles"></div>
             <div class="form-row">
               <label>Desde dónde estudiarías?
@@ -2617,7 +2647,7 @@
           <p class="decision-note">Cuando tocás WhatsApp, ISA recibe curso, objetivo, nivel, formato, país, fecha y precio para ayudarte a confirmar.</p>
           <div class="message-preview" id="messagePreview" aria-label="Mensaje que se enviara a ISA"></div>
           <div class="quote-actions">
-            <a class="primary-link" id="guideWhatsApp" href="#" target="_blank" rel="noopener">Confirmar mi cupo con ISA</a>
+            <a class="primary-link" id="guideWhatsApp" href="#" target="_blank" rel="noopener">Quiero confirmar esta opción</a>
             <button class="copy-message" id="copyMessage" type="button">Copiar elección</button>
           </div>
           <div class="close-note"><strong>Apoyo personalizado</strong>ISA revisa si esa opción te conviene antes de avanzar con la reserva.</div>
@@ -2752,14 +2782,20 @@
             <label>Desde donde estudiarias?
               <select id="countrySelect">
                 <option value="Argentina">Argentina</option>
-                <option value="Uruguay">Uruguay</option>
                 <option value="Chile">Chile</option>
-                <option value="Peru">Peru</option>
+                <option value="China">China</option>
                 <option value="Colombia">Colombia</option>
-                <option value="Mexico">Mexico</option>
                 <option value="Ecuador">Ecuador</option>
-                <option value="Espana">Espana</option>
+                <option value="Espana">España</option>
                 <option value="Estados Unidos">Estados Unidos</option>
+                <option value="Guatemala">Guatemala</option>
+                <option value="Japon">Japón</option>
+                <option value="Mexico">México</option>
+                <option value="Panama">Panamá</option>
+                <option value="Peru">Perú</option>
+                <option value="Uruguay">Uruguay</option>
+                <option value="Honduras">Honduras</option>
+                <option value="Puerto Rico">Puerto Rico</option>
               </select>
             </label>
             <label>Inicio que te interesa
@@ -2837,7 +2873,7 @@
     </section>
   </main>
 
-  <a class="sticky-cta" id="stickyWhatsApp" href="#" target="_blank" rel="noopener">Confirmar mi cupo</a>
+  <a class="sticky-cta" id="stickyWhatsApp" href="#" target="_blank" rel="noopener">Quiero confirmar esta opción</a>
 
   <script>
     const WHATSAPP_NUMBER = "5493416808528";
@@ -3038,15 +3074,29 @@
     ];
 
     const scheduleByCountry = {
-      Argentina: ["Lunes 19:00 a 22:00", "Sabado 10:00 a 13:00"],
-      Uruguay: ["Lunes 19:00 a 22:00", "Sabado 10:00 a 13:00"],
-      Chile: ["Lunes 18:00 a 21:00", "Sabado 09:00 a 12:00"],
-      Peru: ["Lunes 17:00 a 20:00", "Sabado 08:00 a 11:00"],
-      Colombia: ["Lunes 17:00 a 20:00", "Sabado 08:00 a 11:00"],
-      Mexico: ["Lunes 16:00 a 19:00", "Sabado 09:00 a 12:00"],
-      Ecuador: ["Lunes 17:00 a 20:00", "Sabado 08:00 a 11:00"],
-      Espana: ["Martes 00:00 a 03:00", "Sabado 15:00 a 18:00"],
-      "Estados Unidos": ["Lunes 18:00 a 21:00 ET", "Sabado 10:00 a 13:00 ET"]
+      Argentina: ["Lunes 19:00 a 22:00", "Sábado 10:00 a 13:00"],
+      Chile: ["Lunes 18:00 a 21:00", "Sábado 09:00 a 12:00"],
+      China: ["Martes 06:00 a 09:00", "Sábado 21:00 a 00:00"],
+      Colombia: ["Lunes 17:00 a 20:00", "Sábado 08:00 a 11:00"],
+      Ecuador: ["Lunes 17:00 a 20:00", "Sábado 08:00 a 11:00"],
+      Espana: ["Lunes 19:00 ARG / Martes 00:00 España", "Sábado 15:00 a 18:00 España"],
+      "Estados Unidos": ["Lunes 18:00 a 21:00 ET", "Sábado 10:00 a 13:00 ET"],
+      Guatemala: ["Lunes 16:00 a 19:00", "Sábado 07:00 a 10:00"],
+      Japon: ["Martes 07:00 a 10:00", "Sábado 22:00 a 01:00"],
+      Mexico: ["Lunes 16:00 a 19:00", "Sábado 09:00 a 12:00"],
+      Panama: ["Lunes 17:00 a 20:00", "Sábado 08:00 a 11:00"],
+      Peru: ["Lunes 17:00 a 20:00", "Sábado 08:00 a 11:00"],
+      Uruguay: ["Lunes 19:00 a 22:00", "Sábado 10:00 a 13:00"],
+      Honduras: ["Lunes 16:00 a 19:00", "Sábado 07:00 a 10:00"],
+      "Puerto Rico": ["Lunes 18:00 a 21:00", "Sábado 09:00 a 12:00"]
+    };
+
+    const countryLabels = {
+      Espana: "España",
+      Japon: "Japón",
+      Mexico: "México",
+      Panama: "Panamá",
+      Peru: "Perú"
     };
 
     const monthSeats = {
@@ -3057,13 +3107,20 @@
 
     const countryHourOffset = {
       Argentina: 0,
-      Uruguay: 0,
       Chile: -1,
-      Peru: -2,
+      China: 11,
       Colombia: -2,
       Ecuador: -2,
-      Mexico: -3,
       Espana: 5,
+      "Estados Unidos": -1,
+      Guatemala: -3,
+      Japon: 12,
+      Mexico: -3,
+      Panama: -2,
+      Peru: -2,
+      Uruguay: 0,
+      Honduras: -3,
+      "Puerto Rico": -1,
       Otro: 0
     };
 
@@ -3254,7 +3311,7 @@
         symbol: "$",
         regular: "1.650",
         main: "1.650",
-        mainLabel: "Tarjeta",
+        mainLabel: "Tarjeta de credito",
         mainDetail: "3 cuotas sin interes",
         transfer: "1.400",
         transferLabel: "Transferencia",
@@ -3316,14 +3373,6 @@
           short: "Inicial desde cero",
           description: "Empezas con Hangul, pronunciacion, saludos y vocabulario cotidiano.",
           benefits: ["Hangul desde cero", "Pronunciacion guiada", "Frases para uso cotidiano"]
-        },
-        {
-          key: "coreano-2",
-          label: "Coreano 2",
-          scheduleLevel: "Coreano 2",
-          short: "Continuidad inicial",
-          description: "Para quienes ya reconocen Hangul y quieren responder mejor.",
-          benefits: ["Mas vocabulario", "Frases y respuestas", "Continuidad hacia conversacion simple"]
         }
       ],
       ingles: [
@@ -3445,8 +3494,7 @@
       ],
       coreano: [
         ["Coreano 1: inicial desde cero", "Para empezar con Hangul, pronunciacion, saludos, presentacion personal y vocabulario cotidiano."],
-        ["Coreano 2: continuidad inicial", "Para quienes ya reconocen Hangul y quieren construir frases, responder mejor y ampliar vocabulario."],
-        ["Como saber si entrar", "Si no sabes tu nivel, ISA puede orientarte para que no entres a un grupo demasiado facil o demasiado avanzado."]
+        ["Como saber si entrar", "Si no sabes tu nivel, ISA puede orientarte antes de reservar para confirmar si Coreano 1 es la opción correcta."]
       ],
       ingles: [
         ["Ingles A1: inicial", "Para empezar o ordenar una base: presentarte, hablar de rutinas, viajes simples, preguntas frecuentes y vocabulario esencial."],
@@ -3993,12 +4041,12 @@
         step.classList.toggle("active", Number(step.dataset.guideStep) === guideStep);
       });
       guideBack.disabled = guideStep === 0;
-      const nextLabels = ["Seguir: objetivo", "Seguir: nivel", "Ver cupo y precio", "Confirmar mi cupo con ISA"];
+      const nextLabels = ["Ver objetivos", "Ver nivel y formato", "Ver cupo y precio", "Confirmar esta opción"];
       const nudgeLabels = [
-        "Tocá un idioma y avanzo al objetivo.",
-        "Tocá tu objetivo y avanzo al nivel.",
-        "Elegí nivel y tocá modalidad para ver cupo y precio.",
-        "Revisá la opción. Si te sirve, ISA la confirma por WhatsApp."
+        "Primero elegí el idioma que te interesa.",
+        "Ahora marcá para qué querés estudiarlo.",
+        "Elegí nivel y formato para ver la oferta disponible.",
+        "Si te sirve, ISA recibe esta opción y te ayuda a confirmarla."
       ];
       guideNext.textContent = nextLabels[guideStep];
       if (guideNudge) guideNudge.textContent = nudgeLabels[guideStep];
@@ -4012,7 +4060,7 @@
       renderAvailabilityOverview();
 
       guideReasonHeading.textContent = `2. ¿Qué querés lograr con ${selectedCourse.name}?`;
-      guideReasonLead.textContent = "Elegí el objetivo más cercano. Te mostramos una recomendación pensada para ese uso.";
+      guideReasonLead.textContent = "Elegí el objetivo más cercano. Te mostramos una opción pensada para ese uso.";
 
       const reasonLabels = {
         hobby: "Hobby",
@@ -4066,7 +4114,7 @@
       guideFormats.innerHTML = [
         hasGroup ? `<button class="choice-card route-live ${selectedFormat === "grupal" ? "active" : ""}" type="button" data-guide-format="grupal">
           <div class="choice-title"><span class="micro-icon">▶</span><strong>Grupal en vivo</strong></div>
-          <span>Disponible para ${groupMonths.join(", ")}. Clase online en vivo de ${getLiveClassDuration(selectedCourse)} semanales, cupos reales y seguimiento.</span>
+          <span>Profesor en vivo, grupo reducido y grabaciones de clase para repasar.</span>
           <span class="mini-tag">${hasUaiCertificate(selectedCourse, "grupal") ? "Certificado UAI" : "Sin UAI"}</span>
         </button>` : "",
         hasRecorded ? `<button class="choice-card route-ondemand ${selectedFormat === "pregrabado" ? "active" : ""}" type="button" data-guide-format="pregrabado">
@@ -4077,7 +4125,7 @@
       ].join("");
       guideFormatInfo.innerHTML = renderModalityDetail();
 
-      guideCountry.innerHTML = Object.keys(scheduleByCountry).map((country) => `<option value="${country}">${country}</option>`).join("");
+      guideCountry.innerHTML = Object.keys(scheduleByCountry).map((country) => `<option value="${country}">${getCountryLabel(country)}</option>`).join("");
       guideCountry.value = countrySelect.value;
       const availableGuideMonths = selectedFormat === "grupal"
         ? groupMonths
@@ -4179,7 +4227,7 @@
         ? schedules.length ? schedules.map((item, index) => `
           <button class="schedule-row ${index === selectedScheduleIndex ? "active" : ""}" type="button" data-guide-schedule="${index}">
             <strong>${item.month}</strong>
-            <span class="schedule-main"><b>${getPublicScheduleName(item)} - ${item.time}</b> <span>Inicio ${item.date}.${item.finish ? ` Finaliza ${item.finish}.` : ""} Clase online en vivo. Se reserva el curso completo.</span></span>
+            <span class="schedule-main"><b>${getPublicScheduleName(item)} - ${item.time}</b> <span>Inicio ${item.date}${item.finish ? ` · Finaliza ${item.finish}` : ""}. Clase online en vivo.</span></span>
             <span class="seats">${formatSeatsShort(item.seats)}</span>
           </button>
         `).join("") : `<div class="info-row"><strong>No hay grupo visible para ${getSelectedLevel()?.label || selectedCourse.name} en ${month}</strong><p>Podes probar otro mes o enviar la consulta para que ISA revise si hay apertura, espera o alternativa.</p></div>`
@@ -4213,6 +4261,19 @@
       return { hour, minute };
     }
 
+    function getCountryLabel(country) {
+      return countryLabels[country] || country;
+    }
+
+    function getDayLabel(day) {
+      const dayLabels = {
+        Miercoles: "Miércoles",
+        Sabado: "Sábado",
+        Sabados: "Sábados"
+      };
+      return dayLabels[day] || day;
+    }
+
     function shiftTime(day, time, offset) {
       const parsed = parseHour(time);
       let total = parsed.hour * 60 + parsed.minute + offset * 60;
@@ -4232,14 +4293,16 @@
 
     function formatScheduleTime(item, country) {
       const offset = countryHourOffset[country] || 0;
-      if (offset === 0) return `${item.day} ${item.start} a ${item.end}`;
+      const countrySuffix = country === "Espana" ? " (hora España)" : "";
+      if (offset === 0) return `${getDayLabel(item.day)} ${item.start} a ${item.end}${countrySuffix}`;
       const startMinutes = parseHour(item.start).hour * 60 + parseHour(item.start).minute;
       const endMinutes = parseHour(item.end).hour * 60 + parseHour(item.end).minute;
       const endBaseDay = endMinutes <= startMinutes ? indexToDay(dayToIndex(item.day) + 1) : item.day;
       const start = shiftTime(item.day, item.start, offset);
       const end = shiftTime(endBaseDay, item.end, offset);
-      const dayLabel = start.day === end.day ? start.day : `${start.day} a ${end.day}`;
-      return `${dayLabel} ${start.time} a ${end.time}`;
+      if (country === "Espana") return `${getDayLabel(start.day)} de ${start.time} a ${end.time} hs`;
+      if (start.day === end.day) return `${getDayLabel(start.day)} ${start.time} a ${end.time}${countrySuffix}`;
+      return `${getDayLabel(start.day)} ${start.time} a ${getDayLabel(end.day)} ${end.time}${countrySuffix}`;
     }
 
     function getScarcitySeats(month, index = 0) {
@@ -4359,7 +4422,7 @@
     }
 
     function getPriceCountryKey(country) {
-      if (country === "Argentina" || country === "Uruguay") return "ARG";
+      if (country === "Argentina") return "ARG";
       if (country === "Mexico") return "MEX";
       return "USD";
     }
@@ -4392,15 +4455,26 @@
       const symbol = getPriceSymbol(countryKey);
       const regular = parseMoney(row.reg);
       const applies40 = !table.no40;
+      const transferDiscountApplies = table.no40 && ["ingles", "italiano"].includes(selectedCourse.id);
       const finalRaw = applies40 ? (row.d40 ? parseMoney(row.d40) : Math.round(regular * 0.6)) : regular;
+      const transferRaw = applies40 ? finalRaw : transferDiscountApplies ? Math.round(regular * 0.75) : null;
+      const hasTransferBenefit = Boolean(transferRaw);
+      const cardDiscountApplies = ["Argentina", "Mexico"].includes(countrySelect.value);
+      const cardRaw = cardDiscountApplies ? Math.round(regular * 0.75) : null;
+      const cardQuotas = 3;
+      const cardQuota = cardRaw ? cardRaw / cardQuotas : null;
+      const displayRaw = hasTransferBenefit ? transferRaw : regular;
       const monthlyRegular = regular / table.months;
       const monthlyFinal = finalRaw / table.months;
       const quotas = monthSelect.value === "Agosto" ? 3 : table.quotas;
-      const quota = finalRaw / quotas;
+      const quota = displayRaw / quotas;
       return {
         symbol,
         regular,
         finalRaw,
+        transferRaw,
+        cardRaw,
+        displayRaw,
         monthlyRegular,
         monthlyFinal,
         quota,
@@ -4409,10 +4483,17 @@
         hours: table.hours,
         cert: table.cert,
         applies40,
-        discountLabel: applies40 ? "40% OFF aplicado" : "Precio regular vigente",
+        transferDiscountApplies,
+        hasTransferBenefit,
+        cardDiscountApplies,
+        cardQuotas,
+        cardQuota,
+        discountLabel: applies40 ? "40% OFF transferencia" : transferDiscountApplies ? "25% OFF transferencia" : "Precio regular vigente",
         discountDetail: applies40
-          ? "Se descuenta el 40% sobre el valor regular del curso."
-          : "Este idioma no entra en la promo del 40%."
+          ? "Promocion especial vigente por pago por transferencia."
+          : transferDiscountApplies
+            ? "Beneficio disponible pagando por transferencia."
+            : "Este idioma tiene precio propio vigente."
       };
     }
 
@@ -4437,7 +4518,7 @@
         <div class="summary-item"><span>Objetivo</span><strong>${reasonLabel}</strong></div>
         <div class="summary-item"><span>Modalidad</span><strong>${formatLabel}</strong></div>
         <div class="summary-item"><span>${selectedFormat === "grupal" ? "Horario" : "Acceso"}</span><strong>${selectedFormat === "grupal" ? `${month} - ${schedule}` : "Sin horario fijo"}</strong></div>
-        <div class="summary-item"><span>Precio</span><strong>${selectedFormat === "grupal" ? `${price.symbol}${formatMoney(price.finalRaw)}` : formatOnDemandAmount(onDemandPrice, onDemandPrice.main)}</strong></div>
+        <div class="summary-item"><span>Precio</span><strong>${selectedFormat === "grupal" ? `${price.symbol}${formatMoney(price.displayRaw)}` : formatOnDemandAmount(onDemandPrice, onDemandPrice.main)}</strong></div>
       `;
       const reasonText = selectedReason === "hobby"
         ? "porque te ayuda a sostener el entusiasmo y avanzar con una guía clara"
@@ -4462,10 +4543,12 @@
         <h4>${selectedCourse.name} ${formatLabel} - ${month}</h4>
         <p>Esta parece ser tu mejor opción para empezar ${reasonText}. Ves el cupo, el horario y el valor antes de hablar por WhatsApp.</p>
         <div class="price-hero">
-          <span>Valor de tu opción recomendada</span>
-          <strong>${price.symbol}${formatMoney(price.finalRaw)}</strong>
-          <small>${price.quotas} cuotas sin interés de ${price.symbol}${formatMoney(price.quota)}.</small>
-          <div class="discount-pill">${price.discountLabel}</div>
+          <span>${price.hasTransferBenefit ? "Tu oferta disponible hoy" : "Valor de tu opción recomendada"}</span>
+          ${price.hasTransferBenefit ? `<div class="discount-pill">${price.discountLabel}</div><div class="price-regular">Antes <s>${price.symbol}${formatMoney(price.regular)}</s></div><div class="price-now-label">Hoy por transferencia</div>` : ""}
+          <strong>${price.symbol}${formatMoney(price.displayRaw)}</strong>
+          <small>${price.hasTransferBenefit ? `Oferta por transferencia. Tambien se puede consultar en ${price.quotas} pagos de ${price.symbol}${formatMoney(price.quota)} sobre el valor promocional.` : `${price.quotas} cuotas sin interés de ${price.symbol}${formatMoney(price.quota)}.`}</small>
+          ${price.cardDiscountApplies ? `<small>Tarjeta de crédito: ${price.cardQuotas} cuotas sin interés con 25% OFF.</small>` : ""}
+          ${price.hasTransferBenefit ? "" : `<div class="discount-pill">${price.discountLabel}</div>`}
         </div>
         <div class="quick-close-strip">
           <div><span>Cupo</span><strong>${formatSeatsLabel(seats)}</strong></div>
@@ -4484,13 +4567,14 @@
         <details class="price-details">
           <summary>Ver desglose completo</summary>
           <div class="price-breakdown">
-            <div class="price-line"><span>Precio regular del curso</span><strong class="${price.applies40 ? "muted-price" : ""}">${price.symbol}${formatMoney(price.regular)}</strong></div>
+            <div class="price-line"><span>Valor regular sin descuento</span><strong class="${price.hasTransferBenefit ? "muted-price" : ""}">${price.symbol}${formatMoney(price.regular)}</strong></div>
             <div class="price-line"><span>Matricula</span><strong>Incluida</strong></div>
             <div class="price-line"><span>Duracion</span><strong>${price.months} meses</strong></div>
             <div class="price-line"><span>Certificados</span><strong>${price.cert}</strong></div>
             <div class="price-line"><span>Beneficio</span><strong>${price.discountDetail}</strong></div>
-            <div class="price-line total"><span>Total a reservar con ISA</span><strong>${price.symbol}${formatMoney(price.finalRaw)}</strong></div>
-            <div class="price-line"><span>Cuotas sin interés</span><strong>${price.quotas} x ${price.symbol}${formatMoney(price.quota)}</strong></div>
+            ${price.hasTransferBenefit ? `<div class="price-line total"><span>Total con oferta por transferencia</span><strong>${price.symbol}${formatMoney(price.transferRaw)}</strong></div>` : `<div class="price-line total"><span>Total a reservar con ISA</span><strong>${price.symbol}${formatMoney(price.regular)}</strong></div>`}
+            <div class="price-line"><span>Cuotas sobre la oferta</span><strong>${price.quotas} x ${price.symbol}${formatMoney(price.quota)}</strong></div>
+            ${price.cardDiscountApplies ? `<div class="price-line"><span>Tarjeta de crédito Argentina/México</span><strong>${price.cardQuotas} x ${price.symbol}${formatMoney(price.cardQuota)} con 25% OFF</strong></div>` : ""}
           </div>
         </details>
       ` : renderOnDemandQuote(reasonText);
@@ -4539,10 +4623,10 @@
         `Nivel: ${selectedLevel ? selectedLevel.label : "A confirmar"}`,
         `Objetivo: ${reasonLabel}`,
         `Modalidad: ${formatLabel}`,
-        `Estudiaria desde: ${country}`
+        `Estudiaria desde: ${getCountryLabel(country)}`
       ];
       if (selectedFormat === "grupal") {
-        lines.push(
+        lines.push(...[
           `Mes: ${month}`,
           `Grupo elegido: ${selectedSchedule ? getPublicScheduleName(selectedSchedule) : "A confirmar"}`,
           `Horario: ${selectedSchedule ? selectedSchedule.time : "A confirmar"}`,
@@ -4552,10 +4636,11 @@
           `Cupo visto: ${formatSeatsLabel(selectedSchedule ? selectedSchedule.seats : null)}`,
           `Precio regular: ${price.symbol}${formatMoney(price.regular)}`,
           `Beneficio: ${price.discountLabel}`,
-          `Total: ${price.symbol}${formatMoney(price.finalRaw)}`,
-          `Cuotas: ${price.quotas} x ${price.symbol}${formatMoney(price.quota)} sin interes`,
+          price.hasTransferBenefit ? `Total por transferencia: ${price.symbol}${formatMoney(price.transferRaw)}` : `Total: ${price.symbol}${formatMoney(price.regular)}`,
+          `Cuotas sobre oferta: ${price.quotas} x ${price.symbol}${formatMoney(price.quota)}`,
+          price.cardDiscountApplies ? `Tarjeta de crédito ARG/MEX: ${price.cardQuotas} x ${price.symbol}${formatMoney(price.cardQuota)} con 25% OFF` : null,
           `Certificado: ${hasUaiCertificate(selectedCourse) ? price.cert : "No incluye certificacion UAI"}`
-        );
+        ].filter(Boolean));
       } else {
         lines.push(
           "Mes: No aplica",
