@@ -126,7 +126,7 @@
       padding: clamp(22px, 4vw, 42px) clamp(18px, 4vw, 48px) clamp(16px, 3vw, 28px);
       background:
         linear-gradient(90deg, rgba(255, 255, 255, .99), rgba(255, 255, 255, .92)),
-        url("hero-estudiantes-online.png") center right / cover no-repeat;
+        url("../hero-estudiantes-online.png") center right / cover no-repeat;
     }
 
     .hero-copy {
@@ -2088,7 +2088,7 @@
         padding-bottom: 14px;
         background:
           linear-gradient(180deg, rgba(255, 255, 255, .99), rgba(255, 255, 255, .93)),
-          url("hero-estudiantes-online.png") center right / cover no-repeat;
+          url("../hero-estudiantes-online.png") center right / cover no-repeat;
       }
 
       .hero-visual {
@@ -2504,7 +2504,7 @@
 <body>
   <header class="topbar">
     <a class="brand" href="#top" aria-label="IKARUGA Academia Online">
-      <img src="ikaruga-logo-horizontal-white.png" alt="IKARUGA Academia Online">
+      <img src="../ikaruga-logo-horizontal-white.png" alt="IKARUGA Academia Online">
       <span>IKARUGA</span>
     </a>
     <nav class="nav-actions" aria-label="Acciones principales">
@@ -2541,7 +2541,7 @@
       </div>
       <div class="hero-visual" aria-label="Identidad de marca IKARUGA">
         <div class="hero-logo-panel">
-          <img src="ikaruga-logo-white.png" alt="IKARUGA Academia Online">
+          <img src="../ikaruga-logo-white.png" alt="IKARUGA Academia Online">
           <p>Instituto privado de idiomas online con comunidad, campus academico y acompanamiento en tu recorrido.</p>
         </div>
       </div>
@@ -2556,7 +2556,7 @@
             <h2>Elegí y mirá tu oferta antes de hablar por WhatsApp.</h2>
             <p>El recorrido te muestra solo lo necesario: idioma, objetivo, nivel, horario, cupo y precio.</p>
             <div class="isa-intro">
-              <img src="isa-asesora-web.jpg" alt="ISA, apoyo virtual de inscripción">
+              <img src="../isa-asesora-web.jpg" alt="ISA, apoyo virtual de inscripción">
               <div>
                 <strong>Hola, soy ISA. Te ayudo a ordenar tu inscripción.</strong>
                 <span>Elegí tranquilo: al final recibo tu mejor opción y reviso si es la correcta para vos antes de avanzar.</span>
@@ -2617,7 +2617,7 @@
         <aside class="decision-panel" aria-label="Resumen de eleccion">
           <h3>Tu mejor opción</h3>
           <div class="isa-card">
-            <img src="isa-asesora-web.jpg" alt="ISA, asesora educativa de confianza">
+            <img src="../isa-asesora-web.jpg" alt="ISA, asesora educativa de confianza">
             <div>
               <strong>ISA es tu apoyo virtual de inscripción</strong>
               <span>Recibe tu elección, revisa si encaja con vos y te ayuda a confirmar sin una llamada larga.</span>
@@ -2815,7 +2815,7 @@
             <strong>Material para descargar</strong>
             <p>Incluye resumen de cursada grupal, beneficios, cupos orientativos y como elegir bien la modalidad.</p>
           </div>
-          <a class="ghost-link" href="programa-cursos-grupales-ikaruga.pdf" download>Descargar PDF</a>
+          <a class="ghost-link" href="../programa-cursos-grupales-ikaruga.pdf" download>Descargar PDF</a>
         </div>
       </div>
     </section>
@@ -2863,7 +2863,7 @@
 
     <section class="closing-band">
       <div class="closing-card">
-        <img src="ikaruga-logo-white.png" alt="IKARUGA Academia Online">
+        <img src="../ikaruga-logo-white.png" alt="IKARUGA Academia Online">
         <div>
           <h2>Cuando ya elegiste, ISA te ayuda a confirmar el mejor grupo.</h2>
           <p>El mensaje llega con idioma, objetivo, modalidad, pais y mes. Asi la conversacion empieza ordenada y la asesora puede confirmar cupo, nivel y forma de reserva.</p>
@@ -2876,7 +2876,7 @@
   <a class="sticky-cta" id="stickyWhatsApp" href="#" target="_blank" rel="noopener">Quiero confirmar esta opción</a>
 
   <script>
-    const WHATSAPP_NUMBER = "5493413483263";
+    const WHATSAPP_NUMBER = "5493416808528";
 
     const courses = [
       {
@@ -3138,8 +3138,7 @@
         { level: "Coreano 1", day: "Lunes", start: "21:00", end: "00:00", date: "24-8", finish: "14-12", commission: "E", seats: 8 }
       ],
       tailandes: [
-        { level: "Tailandes 2", day: "Lunes", start: "21:00", end: "00:00", date: "24-8", finish: "14-12", commission: "B", seats: 9 },
-        { level: "Tailandes 3", day: "Domingos", start: "14:00", end: "17:00", date: "23-8", finish: "13-12", commission: "A", seats: 16 }
+        { level: "Tailandes 2", day: "Lunes", start: "21:00", end: "00:00", date: "24-8", finish: "14-12", commission: "B", seats: 9 }
       ],
       ingles: [
         { level: "Ingles A1", group: "Grupo 1", day: "Jueves", start: "20:00", end: "22:00", date: "20-8", finish: "12-11", commission: "C", seats: 1 },
@@ -3152,48 +3151,57 @@
         { level: "Chino 2", day: "Lunes", start: "21:00", end: "00:00", date: "24-8", finish: "14-12", commission: "D", seats: 8 }
       ],
       aleman: [
-        { level: "Aleman A2", day: "Domingos", start: "14:00", end: "17:00", date: "23-8", finish: "13-12", commission: "B", seats: 17 }
+        { level: "Aleman A1", day: "Sabados", start: "16:00", end: "19:00", date: "22-8", finish: "12-12", commission: "B", seats: 22 }
       ],
       italiano: [
-        { level: "Italiano A2", day: "Sabados", start: "17:00", end: "19:00", date: "22-8", finish: "14-11", commission: "A", seats: 17 },
         { level: "Italiano A1", day: "Lunes", start: "20:00", end: "22:00", date: "24-8", finish: "16-11", commission: "B", seats: 10 }
       ]
     };
 
     const septemberGroupSchedules = {
       ingles: [
-        { level: "Ingles A1", day: "Sabados", start: "16:00", end: "18:00", date: "19-9", finish: "12-12", commission: "D", seats: 14 }
+        { level: "Ingles A1", day: "Sabados", start: "16:00", end: "18:00", date: "19-9", finish: "12-12", commission: "D", seats: 5 }
       ],
       japones: [
-        { level: "Japones 1", day: "Sabados", start: "16:00", end: "19:00", date: "19-9", finish: "12-12", commission: "X", seats: 20 },
-        { level: "Japones 1", day: "Lunes", start: "21:00", end: "00:00", date: "21-9", finish: "14-12", commission: "U", seats: 13 },
-        { level: "Japones 2", day: "Sabados", start: "14:00", end: "17:00", date: "19-9", finish: "12-12", commission: "G", seats: 18 },
-        { level: "Japones 2", day: "Jueves", start: "21:00", end: "00:00", date: "17-9", finish: "10-12", commission: "H", seats: 17 }
+        { level: "Japones 1", day: "Domingos", start: "14:00", end: "17:00", date: "20-9", finish: "13-12", commission: "T", seats: 15 },
+        { level: "Japones 1", day: "Lunes", start: "21:00", end: "00:00", date: "21-9", finish: "14-12", commission: "U", seats: 5 },
+        { level: "Japones 2", day: "Sabados", start: "14:00", end: "17:00", date: "21-9", finish: "14-12", commission: "G", seats: 1 },
+        { level: "Japones 2", day: "Jueves", start: "21:00", end: "00:00", date: "17-9", finish: "10-12", commission: "H", seats: 3 }
+      ],
+      tailandes: [
+        { level: "Tailandes 3", day: "Domingos", start: "14:00", end: "17:00", date: "20-9", finish: "13-12", commission: "A", seats: 4 }
       ],
       aleman: [
-        { level: "Aleman A1", day: "Miercoles", start: "21:00", end: "00:00", date: "23-9", finish: "9-12", commission: "C", seats: 16 }
+        { level: "Aleman A1", day: "Miercoles", start: "21:00", end: "00:00", date: "23-9", finish: "9-12", commission: "C", seats: 3 },
+        { level: "Aleman A2", day: "Domingos", start: "14:00", end: "17:00", date: "20-9", finish: "10-1", commission: "B", seats: 3 }
+      ],
+      italiano: [
+        { level: "Italiano A2", day: "Sabados", start: "17:00", end: "19:00", date: "19-9", finish: "12-12", commission: "A", seats: 3 }
       ],
       ruso: [
-        { level: "Ruso 1", day: "Sabados", start: "16:00", end: "19:00", date: "19-9", finish: "12-12", commission: "A", seats: 14 }
+        { level: "Ruso 1", day: "Sabados", start: "16:00", end: "19:00", date: "19-9", finish: "12-12", commission: "A", seats: 5 }
+      ],
+      diseno: [
+        { level: "Diseno y programacion", day: "Domingos", start: "14:00", end: "17:00", date: "20-9", finish: "13-12", commission: "A", seats: 4 }
       ]
     };
 
     const octoberGroupSchedules = {
       ingles: [
-        { level: "Ingles A1", day: "Sabados", start: "17:00", end: "19:00", date: "24-10", finish: "9-1", commission: "E", seats: 20 }
+        { level: "Ingles A1", day: "Sabados", start: "17:00", end: "19:00", date: "24-10", finish: "9-1", commission: "E", seats: 1 }
       ],
       coreano: [
-        { level: "Coreano 1", day: "Domingos", start: "14:00", end: "17:00", date: "18-10", finish: "10-1", commission: "F", seats: 17 }
+        { level: "Coreano 1", day: "Domingos", start: "14:00", end: "17:00", date: "18-10", finish: "10-1", commission: "F", seats: 4 }
       ],
       tailandes: [
-        { level: "Tailandes 1", day: "Sabados", start: "16:00", end: "19:00", date: "24-10", finish: "9-1", commission: "D", seats: 16 }
+        { level: "Tailandes 1", day: "Sabados", start: "16:00", end: "19:00", date: "24-10", finish: "9-1", commission: "D", seats: 5 }
       ],
       chino: [
-        { level: "Chino 1", day: "Sabados", start: "16:00", end: "19:00", date: "24-10", finish: "9-1", commission: "D", seats: 16 }
+        { level: "Chino 1", day: "Sabados", start: "16:00", end: "19:00", date: "24-10", finish: "9-1", commission: "D", seats: 4 }
       ],
       japones: [
-        { level: "Japones 1", day: "Miercoles", start: "21:00", end: "00:00", date: "21-10", finish: "13-1", commission: "V", seats: 19 },
-        { level: "Japones 2", day: "Sabados", start: "16:00", end: "19:00", date: "24-10", finish: "9-1", commission: "I", seats: 20 }
+        { level: "Japones 1", day: "Miercoles", start: "21:00", end: "00:00", date: "21-10", finish: "13-1", commission: "V", seats: 1 },
+        { level: "Japones 2", day: "Sabados", start: "16:00", end: "19:00", date: "24-10", finish: "9-1", commission: "I", seats: null }
       ]
     };
 
@@ -4466,7 +4474,7 @@
       const displayRaw = hasTransferBenefit ? transferRaw : regular;
       const monthlyRegular = regular / table.months;
       const monthlyFinal = finalRaw / table.months;
-      const quotas = monthSelect.value === "Agosto" ? 3 : table.quotas;
+      const quotas = monthSelect.value === "Agosto" ? 3 : Math.max(table.quotas, 4);
       const quota = displayRaw / quotas;
       return {
         symbol,
@@ -4780,3 +4788,4 @@
   </script>
 </body>
 </html>
+
